@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ambient Modding Hub</title>
+    <title>CHESSNOW2103 TỔNG HỢP</title>
     <style>
-        /* Phong cách System-UI cực kỳ tối giản, không màu mè */
+        /* Tông màu Dark-Theme chuyên nghiệp */
         :root {
-            --bg: #121212;
-            --card: #1e1e1e;
-            --text-main: #e0e0e0;
-            --text-dim: #999;
-            --accent: #2196f3;
-            --border: #333;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --accent: #38bdf8;
+            --border: #334155;
         }
 
         body {
@@ -21,100 +21,86 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         header {
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
+            background: #020617;
             border-bottom: 1px solid var(--border);
-            background: #161616;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 28px;
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            color: var(--text-dim);
-            font-size: 14px;
-            margin-top: 5px;
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* Danh sách mod */
         .mod-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 24px;
         }
 
+        /* Card hiển thị Mod */
         .mod-card {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            transition: border-color 0.2s;
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .mod-card:hover {
-            border-color: #444;
-        }
-
-        .mod-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .mod-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            margin: 0;
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
         }
 
         .mod-tag {
             font-size: 10px;
-            background: #333;
-            padding: 2px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
+            background: rgba(56, 189, 248, 0.1);
             color: var(--accent);
-            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .mod-desc {
-            font-size: 14px;
-            color: var(--text-dim);
-            margin: 0;
+        h3 { 
+            margin: 15px 0 10px 0; 
+            font-size: 22px; 
+            color: #fff;
         }
 
-        .mod-footer {
-            margin-top: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+        p { 
+            color: var(--text-dim); 
+            font-size: 15px; 
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
+        /* Nút tải xuống */
         .btn-dl {
+            display: inline-block;
             text-decoration: none;
-            color: #000;
             background: var(--accent);
-            padding: 6px 16px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: bold;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 14px;
             transition: opacity 0.2s;
         }
 
@@ -122,27 +108,30 @@
             opacity: 0.9;
         }
 
-        .secondary-link {
-            font-size: 12px;
+        .detail-link {
+            font-size: 13px;
             color: var(--text-dim);
+            margin-left: 15px;
             text-decoration: none;
         }
 
-        .secondary-link:hover {
+        .detail-link:hover {
             text-decoration: underline;
         }
 
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
             font-size: 12px;
-            color: #444;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
         }
 
-        @media (min-width: 768px) {
-            .mod-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        /* Tối ưu cho di động */
+        @media (max-width: 600px) {
+            .mod-card { padding: 20px; }
+            h3 { font-size: 18px; }
         }
     </style>
 </head>
@@ -150,46 +139,46 @@
 
 <header>
     <h1>CHESSNOW2103 TỔNG HỢP</h1>
-    <p>Tổng hợp các bản Mod và Texture Pack cho Minecraft Bedrock</p>
+    <p style="color:var(--text-dim); margin-top:10px; font-weight: 500;">
+        Tổng hợp các bản Mod và Texture Pack cho Minecraft Bedrock
+    </p>
 </header>
 
 <div class="container">
     <div class="mod-grid">
 
-        <!-- MOD ITEM 1 -->
+        <!-- MOD 1: UTILITY HUD -->
         <div class="mod-card">
-            <div class="mod-header">
-                <h3 class="mod-title">Utility HUD</h3>
-                <span class="mod-tag">UI / HUD</span>
-            </div>
-            <p class="mod-desc">Bản mở rộng hiển thị tọa độ, độ bền trang bị và clock cho Minecraft PE/BE. Tối ưu FPS cực tốt.</p>
-            <div class="mod-footer">
-                <a href="https://www.mediafire.com/file/l5i9p26j523baob/utility_hud_by_ambient.mcpack/file" class="btn-dl">TẢI VỀ (.MCPACK)</a>
-                <a href="#" class="secondary-link">Xem chi tiết</a>
+            <span class="mod-tag">UI / HUD</span>
+            <h3>Utility HUD</h3>
+            <p>Bản mở rộng hiển thị tọa độ, độ bền trang bị và clock cho Minecraft PE/BE. Tối ưu FPS cực tốt.</p>
+            <div style="display: flex; align-items: center;">
+                <a href="https://www.mediafire.com/file/l5i9p26j523baob/utility_hud_by_ambient.mcpack/file" target="_blank" class="btn-dl">
+                    TẢI VỀ (.MCPACK)
+                </a>
+                <span class="detail-link">Xem chi tiết</span>
             </div>
         </div>
 
-
-        <!-- MOD ITEM 2 -->
+        <!-- MOD 2: -->
         <div class="mod-card">
-            <div class="mod-header">
-                <h3 class="mod-title">Dự Án Mod Tiếp Theo</h3>
-                <span class="mod-tag">Texture Pack</span>
-            </div>
-            <p class="mod-desc">COMMING SOON...</p>
-            <div class="mod-footer">
-                <a href="#" class="btn-dl">DOWNLOAD</a>
-                <a href="#" class="secondary-link">GitHub</a>
+            <span class="mod-tag">TEXTURE PACK</span>
+            <h3>Dự Án Tiếp Theo</h3>
+            <p>Sắp ra mắt... Hãy theo dõi kênh để cập nhật sớm nhất.</p>
+            <div style="display: flex; align-items: center;">
+                <a href="#" class="btn-dl" style="background: #444; color: #888; cursor: not-allowed;">COMING SOON</a>
+                <span class="detail-link">GitHub</span>
             </div>
         </div>
 
-   
+        <!-- THÊM MOD MỚI TẠI ĐÂY -->
 
     </div>
 </div>
 
 <footer>
-    Project maintained by Ambient &bull; 2026
+    Project maintained by chessnow2103 &bull; 2026<br>
+    Cảm ơn bạn đã tin dùng các sản phẩm của mình!
 </footer>
 
 </body>
