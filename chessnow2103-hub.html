@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambient Modding Hub</title>
+    <style>
+        /* Phong cách System-UI cực kỳ tối giản, không màu mè */
+        :root {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-dim: #999;
+            --accent: #2196f3;
+            --border: #333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            background: #161616;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--text-dim);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Danh sách mod */
+        .mod-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .mod-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: border-color 0.2s;
+        }
+
+        .mod-card:hover {
+            border-color: #444;
+        }
+
+        .mod-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .mod-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin: 0;
+        }
+
+        .mod-tag {
+            font-size: 10px;
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .mod-desc {
+            font-size: 14px;
+            color: var(--text-dim);
+            margin: 0;
+        }
+
+        .mod-footer {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-dl {
+            text-decoration: none;
+            color: #000;
+            background: var(--accent);
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn-dl:hover {
+            opacity: 0.9;
+        }
+
+        .secondary-link {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-decoration: none;
+        }
+
+        .secondary-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 12px;
+            color: #444;
+        }
+
+        @media (min-width: 768px) {
+            .mod-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CHESSNOW2103 TỔNG HỢP</h1>
+    <p>Tổng hợp các bản Mod và Texture Pack cho Minecraft Bedrock</p>
+</header>
+
+<div class="container">
+    <div class="mod-grid">
+
+        <!-- MOD ITEM 1 -->
+        <div class="mod-card">
+            <div class="mod-header">
+                <h3 class="mod-title">Utility HUD</h3>
+                <span class="mod-tag">UI / HUD</span>
+            </div>
+            <p class="mod-desc">Bản mở rộng hiển thị tọa độ, độ bền trang bị và clock cho Minecraft PE/BE. Tối ưu FPS cực tốt.</p>
+            <div class="mod-footer">
+                <a href="https://www.mediafire.com/file/l5i9p26j523baob/utility_hud_by_ambient.mcpack/file" class="btn-dl">TẢI VỀ (.MCPACK)</a>
+                <a href="#" class="secondary-link">Xem chi tiết</a>
+            </div>
+        </div>
+
+
+        <!-- MOD ITEM 2 -->
+        <div class="mod-card">
+            <div class="mod-header">
+                <h3 class="mod-title">Dự Án Mod Tiếp Theo</h3>
+                <span class="mod-tag">Texture Pack</span>
+            </div>
+            <p class="mod-desc">COMMING SOON...</p>
+            <div class="mod-footer">
+                <a href="#" class="btn-dl">DOWNLOAD</a>
+                <a href="#" class="secondary-link">GitHub</a>
+            </div>
+        </div>
+
+   
+
+    </div>
+</div>
+
+<footer>
+    Project maintained by Ambient &bull; 2026
+</footer>
+
+</body>
+</html>
+
