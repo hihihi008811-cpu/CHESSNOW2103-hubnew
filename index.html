@@ -1,146 +1,182 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CHESSNOW2103 - Pack Hub</title>
-  <link rel="icon" href="/favicon.png" />
-  <style>
-    :root{
-      --bg:#071021; --panel:#0f1724; --muted:#90a0b3; --text:#e6eef6; --accent:#00d1ff; --glass:rgba(255,255,255,0.03);
-      --card-radius:14px; --maxw:980px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,#061026 0%, #071727 100%);color:var(--text);min-height:100vh}
-    .wrap{max-width:var(--maxw);margin:36px auto;padding:20px}header.site-head{display:flex;align-items:center;gap:18px;padding:22px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);box-shadow:0 8px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-.logo{width:64px;height:64px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7ce0ff);display:flex;align-items:center;justify-content:center;font-weight:800;color:#002233}
-.title{flex:1}
-.title h1{margin:0;font-size:20px;letter-spacing:0.6px}
-.title p{margin:6px 0 0;color:var(--muted);font-size:13px}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHESSNOW2103 Pack Hub</title>
 
-.top-actions{display:flex;gap:8px;align-items:center}
-.btn{background:var(--accent);color:#022033;padding:10px 14px;border-radius:10px;font-weight:700;text-decoration:none}
-.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none}
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
 
-.intro{margin:20px 0;color:var(--muted);font-size:14px;padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+header {
+    padding: 20px;
+    text-align: center;
+    background: #111827;
+    font-size: 22px;
+    font-weight: bold;
+}
 
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
-@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
 
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--card-radius);border:1px solid rgba(255,255,255,0.03);position:relative;overflow:hidden}
-.card:hover{box-shadow:0 14px 40px rgba(2,6,23,0.7);transform:translateY(-6px)}
-.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.25);font-weight:700;color:var(--accent);font-size:12px}
-h3{margin:12px 0 8px;font-size:18px}
-p.desc{color:var(--muted);font-size:14px;margin:0 0 12px}
+input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
 
-.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:12px;margin-bottom:12px}
-.badge{background:var(--glass);padding:6px 8px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+input {
+    width: 220px;
+}
 
-.card-actions{display:flex;gap:10px;align-items:center}
-.dl{background:var(--accent);color:#022033;padding:10px 12px;border-radius:10px;font-weight:800;text-decoration:none}
-.dl.secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:700}
+.pack-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
 
-footer{margin:40px 0 10px;color:var(--muted);font-size:13px;text-align:center}
+.pack-card {
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
 
-/* small helper */
-.credit{font-size:12px;color:var(--muted);margin-top:8px}
+.pack-card:hover {
+    transform: translateY(-5px);
+    background: #334155;
+}
 
-/* modal */
-.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);visibility:hidden;opacity:0;transition:all .18s}
-.modal.open{visibility:visible;opacity:1}
-.modal-card{background:var(--panel);padding:18px;border-radius:12px;max-width:520px;width:96%;border:1px solid rgba(255,255,255,0.04)}
-.modal-card h4{margin:0 0 10px}
-.modal-row{display:flex;gap:8px;align-items:center;margin-top:10px}
-.input{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--text)}
+.tag {
+    font-size: 12px;
+    background: #3b82f6;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
 
-  </style>
+h3 {
+    margin: 8px 0;
+}
+
+p {
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #22c55e;
+    color: black;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #111827;
+    font-size: 13px;
+    color: #94a3b8;
+}
+</style>
 </head>
+
 <body>
-  <div class="wrap">
-    <header class="site-head">
-      <div class="logo">CN</div>
-      <div class="title">
-        <h1>CHESSNOW2103 Pack Hub</h1>
-        <p>Resource packs, HUDs & tools cho Minecraft Bedrock — tested & curated.</p>
-      </div>
-      <div class="top-actions">
-        <a class="ghost" href="#about">About</a>
-        <a class="btn" id="open-pack">TẢI PACK</a>
-      </div>
-    </header><div class="intro">
-  Đây là kho gọn nhẹ cho tất cả pack & script mình dùng trong video. Tất cả file go to original source hoặc được ghi rõ tác giả. Xem chi tiết pack và hướng dẫn cài trong phần từng pack.
+
+<header>
+    CHESSNOW2103 – Minecraft Pack Hub
+</header>
+
+<div class="controls">
+    <input type="text" id="searchInput" placeholder="Tìm pack...">
+    
+    <select id="filterSelect">
+        <option value="all">Tất cả loại</option>
+        <option value="UI">UI / HUD</option>
+        <option value="Texture">Texture</option>
+        <option value="PvP">PvP</option>
+        <option value="Addon">Addon</option>
+    </select>
 </div>
 
-<div class="grid" id="grid">
+<div class="pack-container" id="packContainer">
 
-  <!-- Example Card: Utility HUD (original author) -->
-  <article class="card">
-    <span class="tag">UI / HUD</span>
-    <h3>Utility HUD <span class="badge">Show Chunk Border</span></h3>
-    <p class="desc">Hiển thị tọa độ, độ bền trang bị và chunk border. Dùng để dễ đặt farm vào đúng chunk. Tested: <strong>1.21.131 (Bedrock)</strong></p>
-
-    <div class="meta">
-      <div class="badge">Creator: Ambient</div>
-      <div class="badge">Type: .mcpack</div>
-      <div class="badge">Tested: 1.21.131</div>
+    <!-- PACK 1 -->
+    <div class="pack-card" data-name="utility hud" data-type="UI">
+        <span class="tag">UI / HUD</span>
+        <h3>Utility HUD</h3>
+        <p>Hiển thị tọa độ, độ bền và Show Chunk Border. Tối ưu FPS.</p>
+        <a href="https://www.mediafire.com/file/l5i9p26j523baob/utility_hud_by_ambient.mcpack/file" 
+           target="_blank" class="btn">TẢI (.MCPACK)</a>
     </div>
 
-    <div class="card-actions">
-      <!-- Prefer linking to original source -->
-      <a class="dl" href="https://example.com/original-link" target="_blank">TẢI TỪ NGUỒN GỐC</a>
-      <a class="dl secondary" data-link="https://www.mediafire.com/file/l5i9p26j523baob/utility_hud_by_ambient.mcpack/file">LINK MEDIAFIRE</a>
+    <!-- PACK 2 -->
+    <div class="pack-card" data-name="fps boost texture" data-type="Texture">
+        <span class="tag">Texture</span>
+        <h3>FPS Boost Texture</h3>
+        <p>Giảm lag, tối ưu thiết bị yếu. Giữ nguyên gameplay.</p>
+        <a href="#" class="btn">TẢI (.MCPACK)</a>
     </div>
 
-    <p class="credit">Original pack by <strong>Ambient</strong>. Nếu bạn muốn pack được host ở đây, inbox mình để thỏa thuận.</p>
-  </article>
-
-  <!-- Example Card: Kelp Zero-Tick Farm Pack (your resource) -->
-  <article class="card">
-    <span class="tag">Resource</span>
-    <h3>Kelp Zero-Tick Helper Pack <span class="badge">v1.0</span></h3>
-    <p class="desc">Texture tweaks để làm kelp/observer/piston dễ thấy khi build zero-tick farm. Suitable for Bedrock 1.21.131.</p>
-
-    <div class="meta">
-      <div class="badge">Author: CHESSNOW2103</div>
-      <div class="badge">Type: .mcpack</div>
-      <div class="badge">Tested: 1.21.131</div>
+    <!-- PACK 3 -->
+    <div class="pack-card" data-name="pvp overlay" data-type="PvP">
+        <span class="tag">PvP</span>
+        <h3>PvP Overlay</h3>
+        <p>Crosshair + hit indicator cho PvP.</p>
+        <a href="#" class="btn">TẢI (.MCPACK)</a>
     </div>
-
-    <div class="card-actions">
-      <a class="dl" href="/downloads/kelp-helper.mcpack" id="dl-own">TẢI NGAY</a>
-      <a class="dl secondary" href="#">HƯỚNG DẪN CÀI</a>
-    </div>
-
-    <p class="credit">Pack do CHESSNOW2103 chỉnh texture. Free to use, credit appreciated.</p>
-  </article>
 
 </div>
 
 <footer>
-  © CHESSNOW2103 • Pack Hub • Tested on Bedrock 1.21.131<br>
-  All original creators credited. Contact: @chessnow2103
+    © 2026 CHESSNOW2103 | Minecraft Bedrock Packs
 </footer>
 
-  </div>  <div class="modal" id="modal">
-    <div class="modal-card">
-      <h4>Chọn link tải</h4>
-      <p style="color:var(--muted);">Bạn có thể tải từ nguồn gốc (khuyến nghị) hoặc link MediaFire (tiện lợi).</p>
-      <div class="modal-row">
-        <input class="input" id="modal-input" value="https://www.mediafire.com/file/l5i9p26j523baob/utility_hud_by_ambient.mcpack/file">
-        <button class="btn" id="copyBtn">Copy</button>
-      </div>
-      <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-end">
-        <a class="dl secondary" href="#" id="closeModal">Đóng</a>
-      </div>
-    </div>
-  </div>  <script>
-    // Small behaviour: open modal, copy link
-    document.getElementById('open-pack').addEventListener('click', ()=>{document.getElementById('modal').classList.add('open')})
-    document.getElementById('closeModal').addEventListener('click',(e)=>{e.preventDefault();document.getElementById('modal').classList.remove('open')})
-    document.querySelectorAll('.dl.secondary').forEach(a=>{
-      a.addEventListener('click', e=>{ e.preventDefault(); const link = a.getAttribute('data-link') || a.href; navigator.clipboard?.writeText(link).then(()=>{ alert('Đã copy link tải vào clipboard!') }) })
-    })
-    document.getElementById('copyBtn').addEventListener('click', ()=>{ const v=document.getElementById('modal-input').value; navigator.clipboard?.writeText(v).then(()=>alert('Copied')) })
-  </script></body>
+<script>
+const searchInput = document.getElementById('searchInput');
+const filterSelect = document.getElementById('filterSelect');
+const packs = document.querySelectorAll('.pack-card');
+
+function filterPacks() {
+    const searchValue = searchInput.value.toLowerCase();
+    const filterValue = filterSelect.value;
+
+    packs.forEach(pack => {
+        const name = pack.getAttribute('data-name');
+        const type = pack.getAttribute('data-type');
+
+        const matchSearch = name.includes(searchValue);
+        const matchFilter = filterValue === 'all' || type === filterValue;
+
+        if (matchSearch && matchFilter) {
+            pack.style.display = "block";
+        } else {
+            pack.style.display = "none";
+        }
+    });
+}
+
+searchInput.addEventListener('input', filterPacks);
+filterSelect.addEventListener('change', filterPacks);
+</script>
+
+</body>
 </html>
